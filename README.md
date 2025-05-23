@@ -1,5 +1,22 @@
 # Invariant MLIR Dialect branch testing
 ## based on tag: `llvmorg-20.1.5`
+
+### Build instructions
+
+```bash
+mkdir llvm-project/build
+
+cd llvm-project/build
+
+python3 -m venv ~/mlir-venv
+source ~/mlir-venv/bin/activate
+
+cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS=mlir -DLLVM_BUILD_EXAMPLES=ON -DLLVM_TARGETS_TO_BUILD="Native;NVPTX;AMDGPU" -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLVM_ENABLE_LLD=ON -DLLVM_CCACHE_BUILD=ON -DMLIR_ENABLE_BINDINGS_PYTHON=ON
+
+ninja
+
+```
+
 # The LLVM Compiler Infrastructure
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/llvm/llvm-project/badge)](https://securityscorecards.dev/viewer/?uri=github.com/llvm/llvm-project)
