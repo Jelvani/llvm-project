@@ -100,6 +100,7 @@
 #include "mlir/Target/LLVM/NVVM/Target.h"
 #include "mlir/Target/LLVM/ROCDL/Target.h"
 #include "mlir/Target/SPIRV/Target.h"
+#include "mlir/Dialect/Invariant/IR/Invariant.h"
 
 namespace mlir {
 
@@ -123,6 +124,7 @@ inline void registerAllDialects(DialectRegistry &registry) {
                   func::FuncDialect,
                   gpu::GPUDialect,
                   index::IndexDialect,
+                  invariant::InvariantDialect,
                   irdl::IRDLDialect,
                   linalg::LinalgDialect,
                   LLVM::LLVMDialect,

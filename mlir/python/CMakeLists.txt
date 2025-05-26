@@ -118,6 +118,15 @@ declare_mlir_dialect_python_bindings(
   DIALECT_NAME index
   GEN_ENUM_BINDINGS)
 
+
+declare_mlir_dialect_python_bindings(
+  ADD_TO_PARENT MLIRPythonSources.Dialects
+  ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/mlir"
+  TD_FILE dialects/InvariantOps.td
+  SOURCES
+    dialects/invariant.py
+  DIALECT_NAME invariant)
+
 declare_mlir_dialect_python_bindings(
   ADD_TO_PARENT MLIRPythonSources.Dialects
   ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/mlir"
@@ -497,6 +506,7 @@ declare_mlir_python_extension(MLIRPythonExtension.RegisterEverything
     MLIRCAPITransforms
     MLIRCAPIRegisterEverything
 )
+
 
 declare_mlir_python_extension(MLIRPythonExtension.Dialects.Linalg.Pybind
   MODULE_NAME _mlirDialectsLinalg
